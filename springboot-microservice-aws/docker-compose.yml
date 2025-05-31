@@ -1,11 +1,12 @@
 version: '3.8'
+
 services:
   mysql:
     image: mysql:8.0
     container_name: mysqldb
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: testdb
+      MYSQL_DATABASE: customerdb
       MYSQL_USER: root
       MYSQL_PASSWORD: root
     ports:
@@ -14,12 +15,18 @@ services:
       - dbdata:/var/lib/mysql
     networks:
       - springnet
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   app:
     build: .
     container_name: springboot-app
     depends_on:
-      - mysql
+      mysql:
+        condition: service_healthy
     ports:
       - "8080:8080"
     environment:
