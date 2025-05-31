@@ -14,7 +14,7 @@ import lombok.Setter;
 @Getter
 public class Customer {
 	@Id
-	@GeneratedValue
+	@GeneratedValue // Auto-generated ID for the customer
 	private long id;
 
 	@Column(name = "first_name", nullable = false)

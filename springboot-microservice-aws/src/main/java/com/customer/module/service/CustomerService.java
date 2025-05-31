@@ -12,7 +12,6 @@ import com.customer.module.repository.CustomerRepository;
 
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import io.github.resilience4j.retry.annotation.Retry;
-import jakarta.annotation.PostConstruct;
 
 
 @Service
@@ -56,7 +55,6 @@ public class CustomerService {
 	 */
 	
 
-	@PostConstruct
     public void createCustomer(CreateCustomerDto dto) {
 
         if (ObjectUtils.isEmpty(dto)) {

@@ -2,10 +2,10 @@ package com.customer.module.controller;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,9 +18,8 @@ import com.customer.module.service.CustomerService;
 public class CustomerController {
 	
 	private final CustomerService customerService;
-
-	@Autowired
-    public CustomerController(CustomerService customerService) {
+    
+	public CustomerController(CustomerService customerService) {
         this.customerService = customerService;
     }
 
@@ -31,9 +30,10 @@ public class CustomerController {
     }
 
     @PostMapping("create")
-    public ResponseEntity<CreateCustomerDto> createCustomer(CreateCustomerDto dto) {
-        customerService.createCustomer(dto);
-        return ResponseEntity.ok(dto);
+    public ResponseEntity<CreateCustomerDto> createCustomer(@RequestBody CreateCustomerDto dto){
+      customerService.createCustomer(dto);
+      return ResponseEntity.ok(dto);
+    	
     }
     
     // Health check endpoints

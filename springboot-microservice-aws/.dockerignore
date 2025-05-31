@@ -1,0 +1,71 @@
+# Java build output
+/target/
+*.class
+
+# IDE and editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+.settings/
+.project
+.classpath
+.factorypath
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Version control
+.git/
+.gitignore
+.gitattributes
+.svn/
+.hg/
+
+# Documentation
+*.md
+HELP.md
+
+# Docker and Compose files
+Dockerfile*
+docker-compose*
+
+# Temporary and development files
+tmp/
+temp/
+*.tmp
+
+# Logs and debug
+*.log
+debug/
+
+# Environment and secrets
+.env*
+*.env
+*.pem
+*.key
+*.crt
+config.local.*
+*.local.yml
+
+# Miscellaneous
+*.prefs
+
+# Exclude test sources (not needed in production image)
+src/test/
+
+# Exclude build scripts and wrappers (but NOT .mvnw or .mvn)
+# (No exclusion for .mvnw or .mvn as per instructions)
+
+# Exclude other build outputs
+dist/
+build/
+out/
+
+# Exclude local development folders
+.local/
+local/
+
+# Exclude docs folder if present
+docs/
